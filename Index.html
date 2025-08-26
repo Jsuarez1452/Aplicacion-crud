@@ -10,6 +10,21 @@
     <header>
         <h1>App de notas</h1>
     </header>
+
+    <main>
+        <section class="note-input">
+            <form id="noteForm">
+                <input type="text" id="noteTitle" placeholder="Título de la nota" required>
+            <textarea id="noteContent" placeholder="Escribe tu nota aquí..."></textarea>
+            <button id="addNoteButton">Agregar Nota</button>
+        </section>
+        <section class="notes-list" id="notesList">
+            <!-- Las notas se agregarán aquí dinámicamente -->
+        </section>
+    </main>
+    <footer>    
+        <p>&copy; 2024 App de notas</p>
+    </footer>
 </body>
 <script src="Script.js"></script>
 </html>
