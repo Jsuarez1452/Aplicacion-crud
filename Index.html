@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
     <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <header>
-        <h1>To-Do List</h1>
-    </header>
-
-    <main>
-        <section class="activityInput">
-            <form id="activityForm">
-                <input type="text" id="activity" placeholder="Título de la nota" required>
-                <button id="addActivityButton">Agregar Nota</button>
+    <main class="container">
+        <section class="tasksApp">
+            <h1>To-Do List</h1>
+            <form class="activityForm">
+                <input type="text" id="activity" placeholder="Nueva tarea..." required>
+                <button id="addActivityButton"><i class="fa-solid fa-plus"></i></button>
             </form>
-        </section>
-        <section class="activityList" id="toDoList">
-            <!-- Las notas se agregarán aquí dinámicamente -->
+            <div>
+                <ul id="notesContainer">
+                    <!-- Las tareas se agregarán aquí-->
+                </ul>
+                <img src="images/empty.png" alt="No tasks" class="emptyImage" style="width: 100px; height: auto;">
+            </div>
         </section>
     </main>
 
