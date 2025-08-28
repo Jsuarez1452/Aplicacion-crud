@@ -82,6 +82,20 @@ body {
     scale: 1.05;
 }
 
+.tasksContainer{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.tasksList{
+    list-style: none;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
 footer {
     text-align: center; 
     padding: 10px;
