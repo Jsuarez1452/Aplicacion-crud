@@ -42,7 +42,62 @@ body {
     font-size: 2.5rem;
     margin-bottom: 20px;
 }
+ /* Completion Status styles */
+.statusContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background: rgba(100, 0, 200, 0.2);
+    gap: 10px;
+    border: 1px dotted rgba(255, 255, 255, 0.18);
+}
 
+.details {
+    width: 100%;
+}
+
+.details h2{
+    color: #fff;
+}
+
+/* Status bar styles */
+.progressBar{
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+#progress{
+    height: 100%;
+    background: #6200ea;
+    width: 
+    0%;
+    transition: width 0.3s ease;
+}
+
+#totalTasks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #6200ea;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 1px solid #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);    
+}
+
+
+/* Form Styles */
 .activityForm{
     display: flex;
     justify-content: space-between;
@@ -82,6 +137,7 @@ body {
     scale: 1.05;
 }
 
+/* Task List Styles */
 .tasksContainer{
    display: flex;
    align-items: center;
@@ -178,6 +234,7 @@ body {
     color: #ff1744;
 }
 
+/* footer styles */
 footer {
     color: #fff;
     text-align: center; 

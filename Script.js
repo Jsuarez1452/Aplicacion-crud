@@ -5,11 +5,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const activityList = document.getElementById('activityList');
     const emptyImage = document.querySelector('.emptyImage');
     const tasksContainer = document.querySelector('.tasksContainer');
+    const progressBar = document.getElementById('progress');
+    const totalTasks = document.getElementById('totalTasks');
     
     const toggleEmptyImage = () => {
        emptyImage.style.display = activityList.children.length === 0 ? 'block' : 'none';
        tasksContainer.style.width = activityList.children.length > 0 ? '100%' : '50%';
     };
+
+   /* const updateProgressBar = (checkCompletion = true) => {
+        const totalActivities = activityList.children.length;
+        const completedTasks = activityList.querySelectorAll('.checkbox:checked').length;
+        progressBar.style.width = totalActivities ? `${completedTasks / totalActivities * 100}%` : '0%';
+        totalTasks.textContent = `${completedTasks} / ${totalActivities} `;
+    };*/
 
     const addActivity = (text, completed = false) => {
         const activityText = text || activityInput.value.trim();
