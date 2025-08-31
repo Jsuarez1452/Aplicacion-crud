@@ -63,7 +63,6 @@ body {
 .details h2{
     color: #fff;
 }
-
 /* Status bar styles */
 #progressBar{
     width: 100%;
@@ -95,8 +94,6 @@ body {
     border: 1px solid #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);    
 }
-
-
 /* Form Styles */
 .activityForm{
     display: flex;
@@ -136,7 +133,6 @@ body {
     background: #3700b3;
     scale: 1.05;
 }
-
 /* Task List Styles */
 .tasksContainer{
    display: flex;
@@ -201,7 +197,7 @@ body {
     text-decoration: 1px line-through #aaa;
     color: #aaa;
 }
-
+/*Delete and Edir Buttons*/
 .editDeleteButtons{
     display: flex;
     margin-right: auto;
@@ -233,8 +229,7 @@ body {
 .editDeleteButtons .deleteButton:hover{
     color: #ff1744;
 }
-
-/* footer styles */
+/* Footer styles */
 footer {
     color: #fff;
     text-align: center; 
@@ -242,10 +237,9 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
-}   
-
+}
 /* For Responsive Design */
-@media (max-width: 600px){
+@media (max-width: 425px){
     .tasksApp{
         padding: 1rem;
         gap: 20px;
@@ -261,19 +255,25 @@ footer {
         gap: 15px;
     }
 
+    .details h2{
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    } 
+
+    .status{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     #totalTasks {
         width: 60px;
         height: 60px;
         font-size: 1.2rem; 
-        display: flex; 
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        background: #6200ea;
-        font-weight: bold;
-        border: 1px solid #fff;
-        box-shadow: 0 0 10px rgba(0,0,0,0.3);
-        
     }
 
     .activityForm button{

@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateProgressBar();
     };
 
-
     const addActivity = (text, completed = false,  checkCompletion = true) => {
         const activityText = text || activityInput.value.trim();
         if (!activityText) 
