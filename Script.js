@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const activityList = document.getElementById('activityList');
     const emptyImage = document.querySelector('.emptyImage');
     const tasksContainer = document.querySelector('.tasksContainer');
-    const progressBar = document.getElementById('progress');
+    const progress = document.getElementById('progress');
     const totalTasks = document.getElementById('totalTasks');
     
     const toggleEmptyImage = () => {
@@ -13,14 +13,34 @@ document.addEventListener('DOMContentLoaded', () => {
        tasksContainer.style.width = activityList.children.length > 0 ? '100%' : '50%';
     };
 
-   /* const updateProgressBar = (checkCompletion = true) => {
+    const updateProgressBar = () => {
         const totalActivities = activityList.children.length;
-        const completedTasks = activityList.querySelectorAll('.checkbox:checked').length;
-        progressBar.style.width = totalActivities ? `${completedTasks / totalActivities * 100}%` : '0%';
+        const completedTasks = activityList.querySelectorAll('.checkBox:checked').length;
+        progress.style.width = totalActivities ? `${completedTasks / totalActivities * 100}%` : '0%';
         totalTasks.textContent = `${completedTasks} / ${totalActivities} `;
-    };*/
+        if (completedTasks === totalActivities && totalActivities > 0) {
+            setTimeout(() => {
+                alert('¡Felicidades! Has completado todas las tareas.');
+            }, 1000);
+        }
+    }
 
-    const addActivity = (text, completed = false) => {
+    const saveActivitiesToLocalStorage = () => {
+        const tasks = Array.from(activityList.querySelectorAll('li')).map(listItem => ({
+            text: listItem.querySelector('span').textContent,
+            completed: listItem.querySelector('.checkBox').checked
+        }));
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    };
+
+    const loadActivitiesFromLocalStorage = () => {
+        const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        savedTasks.forEach(({text, completed}) => addActivity(text, completed, false));
+        updateProgressBar();
+    };
+
+
+    const addActivity = (text, completed = false,  checkCompletion = true) => {
         const activityText = text || activityInput.value.trim();
         if (!activityText) 
             return;
@@ -50,29 +70,37 @@ document.addEventListener('DOMContentLoaded', () => {
             editButton.style.cursor = isChecked ? 'not-allowed' : 'pointer';
             editButton.style.opacity = isChecked ? '0.5' : '1';
             editButton.style.pointerEvents = isChecked ? 'none' : 'auto';
+            updateProgressBar();
+            saveActivitiesToLocalStorage();
             });            
 
         editButton.addEventListener('click', () => {
             if (!checkbox.checked) {
                 activityInput.value = listItem.querySelector('span').textContent
                 listItem.remove();
+                updateProgressBar(false);
+                saveActivitiesToLocalStorage();
                 }
             });
         
         listItem.querySelector('.deleteButton').addEventListener('click', () => {
             listItem.remove();
             toggleEmptyImage();
+            updateProgressBar();
+            saveActivitiesToLocalStorage();
         });
 
         activityList.appendChild(listItem);
         activityInput.value = '';
         toggleEmptyImage();
+        updateProgressBar(checkCompletion);
     };
 
     addActivityButton.addEventListener('click', () => addActivity());
-    activityInput.addEventListener ('keypress', (e) => {
+    activityInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') 
-        e.preventDefault();
-            addActivity(e);
+            addActivity();
     });
+
+    loadActivitiesFromLocalStorage();
 });

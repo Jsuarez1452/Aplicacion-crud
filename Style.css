@@ -65,20 +65,20 @@ body {
 }
 
 /* Status bar styles */
-.progressBar{
+#progressBar{
     width: 100%;
     height: 10px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     overflow: hidden;
     position: relative;
+    margin-top: 15px;
 }
 
 #progress{
     height: 100%;
     background: #6200ea;
-    width: 
-    0%;
+    width: 0%;
     transition: width 0.3s ease;
 }
 
@@ -243,3 +243,45 @@ footer {
     width: 100%;
     bottom: 0;
 }   
+
+/* For Responsive Design */
+@media (max-width: 600px){
+    .tasksApp{
+        padding: 1rem;
+        gap: 20px;
+    }
+
+    .tasksApp h1{
+        font-size: 2rem;
+    }
+
+    .statusContainer{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    #totalTasks {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2rem; 
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: #6200ea;
+        font-weight: bold;
+        border: 1px solid #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        
+    }
+
+    .activityForm button{
+        padding: 10px;
+        font-size: .9rem;
+    }
+
+    #activityList li{
+        font-size: .9rem;
+    }
+}
